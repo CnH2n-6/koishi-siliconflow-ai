@@ -1,11 +1,16 @@
 import { Context, Schema } from 'koishi'
 
+import { Config } from './config'
+
 export const name = 'siliconflow-ai'
+export { Config }
 
-export interface Config {}
 
-export const Config: Schema<Config> = Schema.object({})
+export function apply(ctx: Context, config: Config) {
+  
 
-export function apply(ctx: Context) {
-  // write your plugin here
+  ctx.command('config').action(() => {
+    // 输出当前的配置
+    
+  })
 }
