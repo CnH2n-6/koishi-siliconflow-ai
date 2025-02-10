@@ -12,7 +12,7 @@ export class ChatApi {
     this.http = createHttpServer(config.privateKey)
   }
 
-  async chat(messgae) {
+  async chat(messgae, handleError?) {
     let requestData: TextModelRequestData
     if(this.config.textModel.type === 'LLM') {
 
@@ -46,7 +46,8 @@ export class ChatApi {
       
       return data.choices[0].message.content
     } catch(error) {
-      console.log('接口报错--chat:', error)
+      handleError && handleError()
+      console.log('接口报错--chat:', error?.code)
     }
   }
 }

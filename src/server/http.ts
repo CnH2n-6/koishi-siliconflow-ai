@@ -21,7 +21,7 @@ import type { Context } from 'koishi'
 export const createHttpServer = (token: string): AxiosInstance => {
   return axios.create({
     baseURL: 'https://api.siliconflow.cn',
-    timeout: 100000,
+    timeout: 300000,
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
